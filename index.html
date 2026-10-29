@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ujjwal Kashyap | Creator Gear & Filmmaking Kit</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #070d1e; color: #f1f5f9; }
+    .card-glow:hover { box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.15), 0 8px 10px -6px rgba(16, 185, 129, 0.1); }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between">
+
+  <!-- TOP TRUST NOTICE -->
+  <div class="bg-gradient-to-r from-emerald-600 via-teal-600 to-blue-600 text-white text-xs py-2 px-4 text-center font-semibold tracking-wide">
+    <i class="fa-solid fa-shield-halved mr-1"></i> 100% Authentic Gear Tested & Used Daily by Ujjwal Kashyap | Dispatched via Official Partners
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="border-b border-slate-800 bg-[#0B132B]/90 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <!-- 0.jpg: Profile Photo -->
+        <img src="images/0.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Ujjwal+Kashyap&background=0267C1&color=fff'" alt="Ujjwal Kashyap" class="w-10 h-10 rounded-full border-2 border-emerald-400 object-cover">
+        <div>
+          <h1 class="text-lg font-bold tracking-tight text-white flex items-center">
+            Ujjwal Kashyap
+            <span class="ml-2 text-xs bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 px-2 py-0.5 rounded-full font-medium flex items-center gap-1">
+              <i class="fa-solid fa-circle-check text-[10px]"></i> Verified Kit
+            </span>
+          </h1>
+          <p class="text-xs text-slate-400">Filmmaker & Content Creator</p>
+        </div>
+      </div>
+
+      <!-- Social Quick Links -->
+      <div class="flex items-center space-x-2">
+        <a href="https://youtube.com/@theujjwalkashyap" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800/80 hover:bg-red-600 hover:text-white text-slate-300 transition" title="YouTube Channel">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+        <a href="https://www.instagram.com/the_ujjwalkashyap" target="_blank" rel="noopener noreferrer" class="p-2 rounded-lg bg-slate-800/80 hover:bg-pink-600 hover:text-white text-slate-300 transition" title="Instagram Profile">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://snapnear.in/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-1 text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+          <i class="fa-solid fa-location-dot text-amber-400"></i> SnapNear
+        </a>
+        <!-- Cart Button -->
+        <button onclick="toggleCart()" class="relative px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-sm flex items-center gap-2 transition">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="cart-count" class="bg-slate-900 text-emerald-300 text-xs px-1.5 py-0.5 rounded-full font-bold">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="max-w-7xl mx-auto px-4 pt-10 pb-6 text-center">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-semibold mb-4">
+      <i class="fa-solid fa-camera"></i> Authentic Studio & Content Production Gear
+    </div>
+    <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight mb-4">
+      The Exact Gear Behind <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">My Content</span>
+    </h2>
+    <p class="max-w-2xl mx-auto text-slate-400 text-sm sm:text-base leading-relaxed">
+      No sponsored gimmicks. These are the exact 10 tools I rely on for my videos, lighting, audio, and editing. Tested in the field and handpicked for creators looking to upgrade their production quality.
+    </p>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap justify-center gap-2 mt-8">
+      <button onclick="filterCategory('all')" class="cat-btn active px-4 py-1.5 rounded-full text-xs font-semibold bg-emerald-500 text-white transition" data-cat="all">All Gear (10)</button>
+      <button onclick="filterCategory('camera')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-cat="camera">Cameras & Lenses</button>
+      <button onclick="filterCategory('lighting')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-cat="lighting">Lighting & Softboxes</button>
+      <button onclick="filterCategory('workstation')" class="cat-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-cat="workstation">Editing & Support</button>
+    </div>
+  </section>
+
+  <!-- PRODUCT GRID -->
+  <main class="max-w-7xl mx-auto px-4 py-6">
+    <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- Products render dynamically from javascript with image fallback -->
+    </div>
+  </main>
+
+  <!-- ABOUT UJJWAL SECTION -->
+  <section class="max-w-7xl mx-auto px-4 py-12 border-t border-slate-800 mt-12">
+    <div class="bg-gradient-to-br from-[#0B132B] to-[#111C38] border border-slate-700/60 rounded-2xl p-6 sm:p-10 flex flex-col md:flex-row items-center gap-8">
+      <!-- 0.jpg: Profile Photo -->
+      <img src="images/0.jpg" onerror="this.src='https://ui-avatars.com/api/?name=Ujjwal+Kashyap&background=0267C1&color=fff'" alt="Ujjwal Kashyap" class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl object-cover border-2 border-emerald-400/40 shadow-xl shadow-emerald-500/10 flex-shrink-0">
+      <div class="space-y-4 text-center md:text-left">
+        <div>
+          <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">About The Creator</span>
+          <h3 class="text-2xl font-bold text-white">Ujjwal Kashyap</h3>
+          <p class="text-sm text-slate-400 mt-1">Digital Filmmaker, Photographer & Founder of SnapNear</p>
+        </div>
+        <p class="text-sm text-slate-300 leading-relaxed max-w-3xl">
+          I’ve spent years refining this production kit across portrait shoots, cinematic short projects, and YouTube content. Rather than guessing specs on e-commerce catalogs, every single item in this collection is what I actually power on every day.
+        </p>
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-2">
+          <a href="https://youtube.com/@theujjwalkashyap" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs bg-red-600/20 text-red-400 border border-red-500/40 px-3 py-1.5 rounded-lg hover:bg-red-600 hover:text-white transition">
+            <i class="fa-brands fa-youtube"></i> Main Channel
+          </a>
+          <a href="https://youtube.com/@ujjwalkashyap_vlogs" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs bg-red-600/20 text-red-400 border border-red-500/40 px-3 py-1.5 rounded-lg hover:bg-red-600 hover:text-white transition">
+            <i class="fa-brands fa-youtube"></i> Vlogs Channel
+          </a>
+          <a href="https://www.instagram.com/the_ujjwalkashyap" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs bg-pink-600/20 text-pink-400 border border-pink-500/40 px-3 py-1.5 rounded-lg hover:bg-pink-600 hover:text-white transition">
+            <i class="fa-brands fa-instagram"></i> Instagram
+          </a>
+          <a href="https://www.instagram.com/ujjwalkashyap433" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs bg-pink-600/20 text-pink-400 border border-pink-500/40 px-3 py-1.5 rounded-lg hover:bg-pink-600 hover:text-white transition">
+            <i class="fa-brands fa-instagram"></i> Content Reviews
+          </a>
+          <a href="https://www.linkedin.com/in/ujjwalkumar409" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs bg-blue-600/20 text-blue-400 border border-blue-500/40 px-3 py-1.5 rounded-lg hover:bg-blue-600 hover:text-white transition">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://snapnear.in/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs bg-amber-500/20 text-amber-300 border border-amber-500/40 px-3 py-1.5 rounded-lg hover:bg-amber-500 hover:text-slate-900 transition">
+            <i class="fa-solid fa-location-dot"></i> SnapNear.in
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-[#070d1e] py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© 2026 Ujjwal Kashyap. All Rights Reserved. Curated Creator Gear.</p>
+      <div class="flex items-center gap-4">
+        <span>Business Email: <a href="mailto:ujjwalkashyap432@gmail.com" class="text-emerald-400 hover:underline">ujjwalkashyap432@gmail.com</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div id="cart-drawer" class="fixed inset-y-0 right-0 w-full sm:w-96 bg-[#0B132B] border-l border-slate-800 z-50 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl">
+    <div>
+      <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+        <h3 class="text-lg font-bold text-white flex items-center gap-2">
+          <i class="fa-solid fa-cart-shopping text-emerald-400"></i> Selected Gear
+        </h3>
+        <button onclick="toggleCart()" class="text-slate-400 hover:text-white p-1">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+      <div id="cart-items" class="py-4 space-y-3 max-h-[60vh] overflow-y-auto">
+        <!-- Cart Items -->
+      </div>
+    </div>
+
+    <div class="border-t border-slate-800 pt-4 space-y-3">
+      <div class="flex justify-between text-sm">
+        <span class="text-slate-400">Total Estimate:</span>
+        <span id="cart-total" class="font-bold text-white text-base">₹0</span>
+      </div>
+      <button onclick="openCheckout()" id="checkout-btn" disabled class="w-full py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-sm tracking-wide transition flex items-center justify-center gap-2">
+        <i class="fa-solid fa-lock text-xs"></i> Proceed to Order Slip
+      </button>
+    </div>
+  </div>
+
+  <!-- CHECKOUT MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-[#0B132B] border border-slate-700/80 rounded-2xl max-w-lg w-full p-6 max-h-[90vh] overflow-y-auto relative">
+      <button onclick="closeCheckout()" class="absolute top-4 right-4 text-slate-400 hover:text-white">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+      
+      <h3 class="text-xl font-bold text-white mb-1">Dispatch Details</h3>
+      <p class="text-xs text-slate-400 mb-4">Enter where you'd like your order delivered. You'll receive a confirmation copy via email.</p>
+
+      <form id="order-form" onsubmit="handleOrderSubmit(event)" class="space-y-3">
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Full Name</label>
+          <input required type="text" id="cust-name" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500">
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Phone Number</label>
+            <input required type="tel" id="cust-phone" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Your Email</label>
+            <input required type="email" id="cust-email" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Delivery Address</label>
+          <textarea required id="cust-address" rows="2" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500"></textarea>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">City</label>
+            <input required type="text" id="cust-city" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">PIN Code</label>
+            <input required type="text" id="cust-pin" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500">
+          </div>
+        </div>
+        <div class="pt-2">
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Payment Method</label>
+          <select id="cust-pay" class="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500">
+            <option value="UPI / QR Transfer">UPI / Online Transfer</option>
+            <option value="Cash On Delivery">Cash On Delivery (COD)</option>
+          </select>
+        </div>
+        <button type="submit" class="w-full mt-4 py-3 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm tracking-wide transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-paper-plane"></i> Generate & Send Order Slip
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // EXACT 10 PRODUCTS LINKED TO 1.jpg THROUGH 10.jpg
+    const products = [
+      {
+        id: 1,
+        imgFile: "images/1.jpg",
+        name: "Sony a6700 Mirrorless Camera",
+        category: "camera",
+        price: 136990,
+        creatorTake: "My main camera. 4K 10-bit color with AI autofocus that never misses my face or products.",
+        badge: "Daily Driver"
+      },
+      {
+        id: 2,
+        imgFile: "images/2.jpg",
+        name: "Sigma 30mm f/1.4 DC DN Lens (Sony E)",
+        category: "camera",
+        price: 28069,
+        creatorTake: "The secret to cinematic background blur and tack-sharp quality in low-light room setups.",
+        badge: "Essential Lens"
+      },
+      {
+        id: 3,
+        imgFile: "images/3.jpg",
+        name: "Apple iPhone 13",
+        category: "camera",
+        price: 49999,
+        creatorTake: "Used for quick B-roll reels, social stories, and mobile shooting when traveling.",
+        badge: "Mobile Capture"
+      },
+      {
+        id: 4,
+        imgFile: "images/4.jpg",
+        name: "Digitek 150W Continuous LED Light",
+        category: "lighting",
+        price: 4649,
+        creatorTake: "High-power continuous key light with Bowens mount. Zero flicker and clean skin tones.",
+        badge: "Key Light"
+      },
+      {
+        id: 5,
+        imgFile: "images/5.jpg",
+        name: "Godox Softbox with Honeycomb Grid",
+        category: "lighting",
+        price: 3849,
+        creatorTake: "Directs light softly onto your face while the honeycomb grid prevents spill on walls.",
+        badge: "Modifier"
+      },
+      {
+        id: 6,
+        imgFile: "images/6.jpg",
+        name: "Godox LP1200R Light Panel",
+        category: "lighting",
+        price: 8999,
+        creatorTake: "Provides background ambient lighting, back rim lights, and mood gradients for set vibes.",
+        badge: "Mood Lighting"
+      },
+      {
+        id: 7,
+        imgFile: "images/7.jpg",
+        name: "Neewer Basics FL10 Pocket LED Light",
+        category: "lighting",
+        price: 1899,
+        creatorTake: "Compact pocket fill light. Great for macro product close-ups and vlog fill.",
+        badge: "Portable"
+      },
+      {
+        id: 8,
+        imgFile: "images/8.jpg",
+        name: "Warm Studio Room Lamp",
+        category: "lighting",
+        price: 1499,
+        creatorTake: "Practical lamp placed in-frame behind the desk to create warmth and cinematic room depth.",
+        badge: "Room Accent"
+      },
+      {
+        id: 9,
+        imgFile: "images/9.jpg",
+        name: "Digitek Heavy-Duty Light Stand",
+        category: "workstation",
+        price: 1699,
+        creatorTake: "Sturdy stand holding the 150W light and heavy softbox without any wobbling or tilt.",
+        badge: "Support"
+      },
+      {
+        id: 10,
+        imgFile: "images/10.jpg",
+        name: "HP Pavilion Laptop (Ryzen 5 5500U)",
+        category: "workstation",
+        price: 52990,
+        creatorTake: "My reliable editing machine powering Premiere Pro timelines, color grades, and scripts.",
+        badge: "Editing Rig"
+      }
+    ];
+
+    let cart = [];
+
+    function renderProducts(items) {
+      const grid = document.getElementById("product-grid");
+      grid.innerHTML = items.map(item => `
+        <div class="bg-[#0B132B] border border-slate-800 rounded-2xl overflow-hidden flex flex-col justify-between card-glow transition duration-300">
+          <div>
+            <div class="relative bg-slate-900/60 aspect-video flex items-center justify-center overflow-hidden border-b border-slate-800/80">
+              <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur border border-slate-700 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded-full z-10">
+                #${item.id} • ${item.badge}
+              </span>
+              <!-- Automatically loads numbered image: images/${item.id}.jpg -->
+              <img src="${item.imgFile}" 
+                   onerror="this.onerror=null; this.src='https://placehold.co/600x400/0f172a/38bdf8?text='+encodeURIComponent('${item.name.replace(/'/g, "")}')" 
+                   alt="${item.name}" 
+                   class="w-full h-full object-cover hover:scale-105 transition duration-500">
+            </div>
+            <div class="p-4 space-y-2">
+              <h3 class="text-base font-bold text-white line-clamp-1">${item.name}</h3>
+              <p class="text-xs text-slate-300 bg-slate-900/80 p-2.5 rounded-xl border border-slate-800/80 italic leading-relaxed">
+                "${item.creatorTake}"
+              </p>
+            </div>
+          </div>
+          <div class="p-4 pt-0 flex items-center justify-between border-t border-slate-800/60 mt-2">
+            <div>
+              <span class="text-[10px] text-slate-400 block uppercase">Price</span>
+              <span class="text-base font-extrabold text-white">₹${item.price.toLocaleString('en-IN')}</span>
+            </div>
+            <button onclick="addToCart(${item.id})" class="px-3.5 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold transition flex items-center gap-1.5">
+              <i class="fa-solid fa-plus text-[10px]"></i> Add
+            </button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function filterCategory(cat) {
+      document.querySelectorAll(".cat-btn").forEach(btn => {
+        if(btn.dataset.cat === cat) {
+          btn.classList.add("bg-emerald-500", "text-white");
+          btn.classList.remove("bg-slate-800", "text-slate-300");
+        } else {
+          btn.classList.remove("bg-emerald-500", "text-white");
+          btn.classList.add("bg-slate-800", "text-slate-300");
+        }
+      });
+      if(cat === "all") renderProducts(products);
+      else renderProducts(products.filter(p => p.category === cat));
+    }
+
+    function toggleCart() {
+      const drawer = document.getElementById("cart-drawer");
+      drawer.classList.toggle("translate-x-full");
+    }
+
+    function addToCart(id) {
+      const p = products.find(x => x.id === id);
+      cart.push(p);
+      updateCartUI();
+      const drawer = document.getElementById("cart-drawer");
+      if(drawer.classList.contains("translate-x-full")) toggleCart();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      document.getElementById("cart-count").innerText = cart.length;
+      const container = document.getElementById("cart-items");
+      const checkoutBtn = document.getElementById("checkout-btn");
+
+      if(cart.length === 0) {
+        container.innerHTML = `<div class="text-center py-10 text-slate-500 text-sm"><i class="fa-solid fa-box-open text-2xl mb-2 block"></i>No gear added yet.</div>`;
+        document.getElementById("cart-total").innerText = "₹0";
+        checkoutBtn.disabled = true;
+        return;
+      }
+
+      checkoutBtn.disabled = false;
+      let total = 0;
+      container.innerHTML = cart.map((item, idx) => {
+        total += item.price;
+        return `
+          <div class="flex items-center justify-between bg-slate-900/80 border border-slate-800 p-2.5 rounded-xl text-xs">
+            <div>
+              <p class="font-bold text-white line-clamp-1">${item.name}</p>
+              <p class="text-emerald-400 font-semibold mt-0.5">₹${item.price.toLocaleString('en-IN')}</p>
+            </div>
+            <button onclick="removeFromCart(${idx})" class="text-red-400 hover:text-red-300 p-1">
+              <i class="fa-solid fa-trash-can"></i>
+            </button>
+          </div>
+        `;
+      }).join("");
+
+      document.getElementById("cart-total").innerText = `₹${total.toLocaleString('en-IN')}`;
+    }
+
+    function openCheckout() {
+      toggleCart();
+      document.getElementById("checkout-modal").classList.remove("hidden");
+    }
+
+    function closeCheckout() {
+      document.getElementById("checkout-modal").classList.add("hidden");
+    }
+
+    function handleOrderSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById("cust-name").value;
+      const phone = document.getElementById("cust-phone").value;
+      const email = document.getElementById("cust-email").value;
+      const addr = document.getElementById("cust-address").value;
+      const city = document.getElementById("cust-city").value;
+      const pin = document.getElementById("cust-pin").value;
+      const pay = document.getElementById("cust-pay").value;
+      const itemsList = cart.map(i => `- ${i.name} (₹${i.price.toLocaleString('en-IN')})`).join('%0D%0A');
+      const total = cart.reduce((a, b) => a + b.price, 0);
+
+      const subject = encodeURIComponent(`New Creator Gear Order - ${name}`);
+      const body = encodeURIComponent(
+`Order Summary:
+-------------------------
+${cart.map(i => `- ${i.name} (₹${i.price.toLocaleString('en-IN')})`).join('\n')}
+
+Total Amount: ₹${total.toLocaleString('en-IN')}
+Payment Preference: ${pay}
+
+Customer Details:
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Shipping Address: ${addr}, ${city} - ${pin}
+-------------------------`
+      );
+
+      // Opens direct mail draft to your official email
+      window.location.href = `mailto:ujjwalkashyap432@gmail.com?subject=${subject}&body=${body}`;
+      alert("Order generated! Your default mail client will now open with your complete order details ready to send to ujjwalkashyap432@gmail.com.");
+      closeCheckout();
+      cart = [];
+      updateCartUI();
+    }
+
+    // Initial load
+    renderProducts(products);
+  </script>
+</body>
+</html>
